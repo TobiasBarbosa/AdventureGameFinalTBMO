@@ -6,30 +6,29 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> inventoryList;
-    private int healthPoints;
+    private int healthPointsPlayer;
     private Weapon currentWeapon;
     private boolean isPlayerDead;
 
-    //***CONSTRUCTOR***
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Player(Room firstRoom){
         this.currentRoom = firstRoom;
         this.inventoryList = new ArrayList<>();
-        this.healthPoints = 100;
-        isPlayerDead = false;
+        this.healthPointsPlayer = 100;
+        this.isPlayerDead = false;
     }
-
 
     //***GETTER METHODS***----------------------------------------------------------------------------------------------
     public Room getCurrentRoom(){
         return currentRoom;
     }
 
-    public ArrayList<Item> getInventoryList() {
+    public ArrayList<Item> getInventoryList(){
         return inventoryList;
     }
 
-    public int getHealthPointsPlayer() {
-        return healthPoints;
+    public int getHealthPointsPlayer(){
+        return healthPointsPlayer;
     }
 
     public Weapon getCurrentWeapon(){
@@ -37,13 +36,13 @@ public class Player {
     }
 
     //***SETTER METHODS***----------------------------------------------------------------------------------------------
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
+    public void setHealthPointsPlayer(int healthPointsPlayer){
+        this.healthPointsPlayer = healthPointsPlayer;
     }
 
-    //***METHODS (so player can move around in different rooms)---------------------------------------------------------
-    public void goNorth(){
-        if(currentRoom.getNorth() != null) {
+    //***METHODS***(so player can move around in different rooms)-------------------------------------------------------
+    public void MovePlayerNorth(){
+        if(currentRoom.getNorth() != null) {       //This still does not logically make sense to me....
             currentRoom = currentRoom.getNorth(); //Uses getter method to set the new currentRoom to the Room which is North from CurrentRoom.
             System.out.println("going north");
             currentRoomPrint();
@@ -52,9 +51,9 @@ public class Player {
         }
     }
 
-    public void goSouth(){
-        if(currentRoom.getSouth() != null) {
-            currentRoom = currentRoom.getSouth(); //Uses getter method to set the new currentRoom to the Room which is North from CurrentRoom.
+    public void MovePlayerSouth(){
+        if(currentRoom.getSouth() != null) {       //This still does not logically make sense to me....
+            currentRoom = currentRoom.getSouth(); //Uses getter method to set the new currentRoom to the Room which is South from CurrentRoom.
             System.out.println("going south");
             currentRoomPrint();
         } else {
@@ -62,9 +61,9 @@ public class Player {
         }
     }
 
-    public void goEast(){
-        if(currentRoom.getEast() != null) {
-            currentRoom = currentRoom.getEast(); //Uses getter method to set the new currentRoom to the Room which is North from CurrentRoom.
+    public void MovePlayerEast(){
+        if(currentRoom.getEast() != null) {       //This still does not logically make sense to me....
+            currentRoom = currentRoom.getEast(); //Uses getter method to set the new currentRoom to the Room which is East from CurrentRoom.
             System.out.println("going east");
             currentRoomPrint();
         } else {
@@ -72,16 +71,15 @@ public class Player {
         }
     }
 
-    public void goWest(){
-        if(currentRoom.getWest() != null) {
-            currentRoom = currentRoom.getWest(); //Uses getter method to set the new currentRoom to the Room which is North from CurrentRoom.
+    public void MovePlayerWest(){
+        if(currentRoom.getWest() != null) {       //This still does not logically make sense to me....
+            currentRoom = currentRoom.getWest(); //Uses getter method to set the new currentRoom to the Room which is West from CurrentRoom.
             System.out.println("going west");
             currentRoomPrint();
         } else {
             directionNotPossible();
         }
     }
-
 
     //***METHODS--------------------------------------------------------------------------------------------------------
     public void currentRoomPrint(){
@@ -93,7 +91,7 @@ public class Player {
     }
 
     public Item findItemInInventory(String itemName){
-        for (Item item : inventoryList) {
+        for (Item item : inventoryList) { //For loop checks if the itemName is within the arraylist of inventory
             if (item.getItemName().equalsIgnoreCase(itemName)){
                 return item;
             }
@@ -129,13 +127,13 @@ public class Player {
         if (item == null) {
             return "You don't have that item";
         } else if (item instanceof Food food) {
-            if (healthPoints + food.getHealthPoints() >= 100) {
-                setHealthPoints(100);
+            if (healthPointsPlayer + food.getHealthPoints() >= 100) {
+                setHealthPointsPlayer(100);
                 removeItem(food);
                 return "You ate the " + itemName;
             } else {
                 removeItem(food);
-                healthPoints += food.getHealthPoints();
+                healthPointsPlayer += food.getHealthPoints();
                 return "You ate the " + itemName;
             }
         } else {
@@ -143,7 +141,7 @@ public class Player {
         }
     }
 
-    //Er i tvivl om hvad der sker her....
+    //Not sure exactly how this works logically/practically...->
     public String equipWeapon(String itemName) {
         Item item = findItemInInventory(itemName);
         if (item == null) {
@@ -164,6 +162,9 @@ public class Player {
             }
     }
 
-    //------------------------------------------------------------------------------------------------------------------
+    public boolean isPlayerDead(){
+        return getHealthPointsPlayer() <= 0;
+    }
 
+    //------------------------------------------------------------------------------------------------------------------
 }

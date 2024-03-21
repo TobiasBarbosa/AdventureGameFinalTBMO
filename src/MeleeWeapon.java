@@ -6,16 +6,15 @@ public class MeleeWeapon extends Weapon{
     }
 
     //***METHODS***-----------------------------------------------------------------------------------------------------
-    // Returner 1, da den altid vil have 1 angreb tilbage (løber aldrig ud)
     @Override
     public int remainingUses(){
-        return 1;
+        return 1; //Returns 1, because it will always have 1 attack left (never runs out)
 
     }
 
-    //er tom da den ikke skal fjerne ammo...
     @Override
     public void useWeapon(){
-    }
+    }//is empty because it does not need to reduce ammo...
 
+    //------------------------------------------------------------------------------------------------------------------
 }

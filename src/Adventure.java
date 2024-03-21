@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 //ADVENTURE CLASS - CONTROLLER OF THE CLASSES (INFORMATION EXPERT)
 public class Adventure {
 
@@ -29,9 +27,10 @@ public class Adventure {
         return player.getCurrentRoom();
      }
 
-     //public String getAddItemPlayer(String itemName) {
-     //   return player.addItemPlayer(itemName);
-     //}
+     //Not sure why this doesn't work...
+//     public String getAddItemPlayer(String itemName) {
+//        return player.addItemPlayer(itemName);
+//     }
 
      public String getPlayerEat(String itemName) {
         return player.eatFood(itemName);
@@ -45,50 +44,26 @@ public class Adventure {
         return player.dropItem(itemName);
      }
 
+     public boolean getIsPlayerDead() {
+        return player.isPlayerDead();
+     }
 
    //***METHODS*** (that makes the player move to a given direction)----------------------------------------------------
     public void goNorth(){
-        player.goNorth();
+        player.MovePlayerNorth();
     }
 
     public void goSouth(){
-        player.goSouth();
+        player.MovePlayerSouth();
     }
 
     public void goEast(){
-        player.goEast();
+        player.MovePlayerEast();
     }
 
     public void goWest(){
-        player.goWest();
+        player.MovePlayerWest();
     }
 
-    public void move(String input){
-        switch(input.toLowerCase()){
-            case "go north":
-            case "north":
-            case "n":
-                 goNorth();
-                 break;
-            case "go south":
-            case "south":
-            case "s":
-                 goSouth();
-                 break;
-            case "go east":
-            case "east":
-            case "e":
-                 goEast();
-                 break;
-            case "go west":
-            case "west":
-            case "w":
-                 goWest();
-                 break;
-        }
-    }
-
-
-
-
+    //------------------------------------------------------------------------------------------------------------------
 }

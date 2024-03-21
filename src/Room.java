@@ -15,15 +15,13 @@ public class Room {
     private ArrayList<Enemy> enemyList = new ArrayList<>();
 
 
-
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Room (String roomName, String roomDescription){
         this.roomName = roomName;
         this.roomDescription = roomDescription;
     }
 
-
-    //***SETTER METHODS (to set the value)***
+    //***SETTER METHODS (to set the value)***---------------------------------------------------------------------------
     public void setNorth(Room north){
         this.north = north;
     }
@@ -67,9 +65,8 @@ public class Room {
 
     //***METHODS THAT RELATES TO ROOM***--------------------------------------------------------------------------------
 
-    //ADDS AN ITEM TO AN ARRAYLIST
     public void addItemRoom(Item item){
-        itemList.add(item);
+        itemList.add(item); //adds item to an <item>ArrayList
     }
 
     public Item searchItemRoom(String itemName) {
@@ -91,6 +88,5 @@ public class Room {
         enemyList.add(enemyName);
     }
 
-
-
+    //------------------------------------------------------------------------------------------------------------------
 }

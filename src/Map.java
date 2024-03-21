@@ -69,7 +69,6 @@ public class Map {
         room9.setWest(room8);
         room9.addItemRoom(new Item ("key", "A golden key"));
 
-
     }
 
     //***GETTER METHODS***----------------------------------------------------------------------------------------------

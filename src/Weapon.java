@@ -1,17 +1,17 @@
 public abstract class Weapon extends Item {
 
-    //***ATTRIBUTES***
+    //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private int damage;
     private boolean isRangedWeapon;
 
-    //***CONSTRUCTOR***
-    public Weapon(String itemName, String itemDescription, int damage, boolean b){
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
+    public Weapon(String itemName, String itemDescription, int damage, boolean isRangedWeapon){
         super(itemName, itemDescription);
         this.damage = damage;
         this.isRangedWeapon = isRangedWeapon;
     }
 
-    //***GETTER METHODS***
+    //***GETTER METHODS***----------------------------------------------------------------------------------------------
     public int getDamage() {
         return damage;
     }
@@ -20,8 +20,11 @@ public abstract class Weapon extends Item {
         return isRangedWeapon;
     }
 
-    //***ABSTRACT METHODS***--------------------------------------------------------------------------------------------
+    //***ABSTRACT METHODS/SIGNATURES***---------------------------------------------------------------------------------
+    //Let us try to describe what's happening here with abstract classes....
     public abstract int remainingUses();
 
     public abstract void useWeapon();
+
+    //------------------------------------------------------------------------------------------------------------------
 }
