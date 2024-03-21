@@ -9,7 +9,6 @@ public class MeleeWeapon extends Weapon{
     @Override
     public int remainingUses(){
         return 1; //Returns 1, because it will always have 1 attack left (never runs out)
-
     }
 
     @Override
