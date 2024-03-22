@@ -5,7 +5,6 @@ public class Adventure {
     private Player player;
     private Map map;
 
-
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Adventure(){
         map = new Map();

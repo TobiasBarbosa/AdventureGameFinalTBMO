@@ -35,7 +35,7 @@ public class Room {
         this.west = west;
     }
 
-    //***GETTER METHODS (so we can retrieve the value in other classes)-------------------------------------------------
+    //***GETTER METHODS (so we can retrieve the value in other classes)***----------------------------------------------
     public Room getNorth() {
         return north;
     }

@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Player {
 
     ///***ATTRIBUTES***-------------------------------------------------------------------------------------------------
-
     private Room currentRoom;
     private ArrayList<Item> inventoryList;
     private int healthPointsPlayer;
@@ -126,7 +125,7 @@ public class Player {
         Item item = findItemInInventory(itemName);
         if (item == null) {
             return "You don't have that item";
-        } else if (item instanceof Food food) {
+        } else if (item instanceof Food food) { //make separate variable on top...
             if (healthPointsPlayer + food.getHealthPoints() >= 100) {
                 setHealthPointsPlayer(100);
                 removeItem(food);
