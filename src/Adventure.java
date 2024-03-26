@@ -7,7 +7,6 @@ public class Adventure {
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Adventure(){
-        map = new Map();
         map.mapCreator();
         player = new Player(map.getStarterRoom());
     }
@@ -31,9 +30,9 @@ public class Adventure {
 //        return player.addItemPlayer(itemName);
 //     }
 
-     public String getPlayerEat(String itemName) {
-        return player.eatFood(itemName);
-     }
+//     public String getPlayerEat(String itemName) {
+//        return player.eatFood(itemName);
+//     }
 
      public String getEquipWeapon(String itemName) {
         return player.equipWeapon(itemName);
@@ -46,6 +45,8 @@ public class Adventure {
      public boolean getIsPlayerDead() {
         return player.isPlayerDead();
      }
+
+
 
    //***METHODS*** (that makes the player move to a given direction)----------------------------------------------------
     public void goNorth(){

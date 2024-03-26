@@ -19,6 +19,9 @@ public class Item {
         return itemDescription;
     }
 
+    //***METHODS***-----------------------------------------------------------------------------------------------------
+    //ToString (if you print any kind og object, java prints out the memory place and not the object information)...
+    //Unless you Override the function with a toString() method.
     @Override
     public String toString() {
         return itemDescription;

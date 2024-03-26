@@ -40,8 +40,8 @@ public class Map {
         room3.addItemRoom(new MeleeWeapon("knife", "A dull knife with a rusty blade", -10));
 
         //ROOM4--------------
-        room4.setNorth(room1);
-        room4.setSouth(room7);
+        room4.setNorthConnection(room1);
+        room4.setSouthConnection(room7);
         room4.addItemRoom(new Item("book", "A book with magical spells in it"));
 
         //ROOM5--------------
@@ -49,24 +49,24 @@ public class Map {
         room5.addEnemyRoom(new Enemy("ghost bear", "a ghost bear with no eyes is approaching while bearing", 50, new MeleeWeapon("claws", "claws that scratch", 50)));
 
         //ROOM6--------------
-        room6.setNorth(room3);
-        room6.setSouth(room9);
+        room6.setNorthConnection(room3);
+        room6.setSouthConnection(room9);
         room6.addItemRoom(new Item ("skull", "A skull with golden teeth"));
         room6.addItemRoom(apple);
 
         //ROOM7--------------
-        room7.setNorth(room4);
-        room7.setEast(room8);
+        room7.setNorthConnection(room4);
+        room7.setEastConnection(room8);
 
         //ROOM8--------------
-        room8.setNorth(room5);
-        room8.setEast(room9);
-        room8.setWest(room7);
+        room8.setNorthConnection(room5);
+        room8.setEastConnection(room9);
+        room8.setWestConnection(room7);
         room8.addItemRoom(apple);
 
         //ROOM9--------------
-        room9.setNorth(room6);
-        room9.setWest(room8);
+        room9.setNorthConnection(room6);
+        room9.setWestConnection(room8);
         room9.addItemRoom(new Item ("key", "A golden key"));
 
     }

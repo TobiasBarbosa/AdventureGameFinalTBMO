@@ -6,10 +6,10 @@ public class Room {
     private String roomName;
     private String roomDescription;
 
-    private Room north;
-    private Room south;
-    private Room east;
-    private Room west;
+    private Room northConnection;
+    private Room southConnection;
+    private Room eastConnection;
+    private Room westConnection;
 
     private ArrayList<Item> itemList = new ArrayList<>();
     private ArrayList<Enemy> enemyList = new ArrayList<>();
@@ -22,8 +22,8 @@ public class Room {
     }
 
     //***SETTER METHODS (to set the value)***---------------------------------------------------------------------------
-    public void setNorth(Room north){
-        this.north = north;
+    public void setNorthConnection(Room northConnection){
+        this.northConnection = northConnection;
     }
     public void setSouth(Room south){
         this.south = south;
@@ -36,8 +36,8 @@ public class Room {
     }
 
     //***GETTER METHODS (so we can retrieve the value in other classes)***----------------------------------------------
-    public Room getNorth() {
-        return north;
+    public Room getNorthConnection() {
+        return northConnection;
     }
     public Room getSouth() {
         return south;
@@ -59,16 +59,20 @@ public class Room {
         return roomDescription;
     }
 
-    public ArrayList<Enemy> getEnemyList(String enemyName) {
+    public ArrayList<Enemy> getEnemyList() {
         return enemyList;
     }
 
     //***METHODS THAT RELATES TO ROOM***--------------------------------------------------------------------------------
 
-    public void addItemRoom(Item item){
-        itemList.add(item); //adds item to an <item>ArrayList
+    //***ITEM METHODS***------------------------------------------------------------------------------------------------
+    //Hvad sker der når man kalder en klasse (fx Item) som datatyper inden i fx vores parameter?
+    //bruger den så bare konstruktørens værdier/objekt)
+    public void addItemRoom(Item addItem){
+        itemList.add(addItem); //adds addItem to an <addItem>ArrayList
     }
 
+    //Hvad sker der når man kalder en klasse i sin metode (i en anden klasse)?
     public Item searchItemRoom(String itemName) {
         for (Item item : itemList) {
             if(item.getItemName().equalsIgnoreCase(itemName)){
@@ -78,14 +82,42 @@ public class Room {
         return null;
     }
 
+    //Hvorfor kalder vi en String inde i vores i parameteret på vores Item metode?
     public Item removeItem(String itemName) {
         Item itemToRemove = searchItemRoom(itemName);
         itemList.remove(itemToRemove);
         return itemToRemove;
     }
 
-    public void addEnemyRoom(Enemy enemyName){
+    public void printItemlist() {
+        for (Item item : itemList) {
+            System.out.println(item);
+        }
+    }
+
+    //***ENEMY METHODS--------------------------------------------------------------------------------------------------
+    public Enemy addEnemyRoom(Enemy enemyName){
         enemyList.add(enemyName);
+        return enemyName;
+    }
+
+    public void printEnemyList(){
+        for (Enemy enemy : enemyList) {
+            System.out.println(enemy);
+        }
+    }
+
+    public void removeEnemyRoom(Enemy enemyName) {
+        enemyList.remove(enemyName);
+    }
+
+    public Enemy searchEnemy(String enemyName) {
+
+        for (Enemy searchEnemy : enemyList) {
+            if (searchEnemy.getEnemyName().equalsIgnoreCase(enemyName))
+                return searchEnemy;
+        }
+        return null;
     }
 
     //------------------------------------------------------------------------------------------------------------------
